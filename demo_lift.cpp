@@ -2,6 +2,10 @@
 
 #include "demo_lift.h"
 
+vd demoLiftInit(void){
+  
+}
+
 bl demoLift(void){
   // リフト動作
 ul elapsedTime;

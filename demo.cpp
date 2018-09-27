@@ -16,6 +16,9 @@ static uc demoState;
 
 vd demoInit(vd){
   demoState = DEMO_STATE_MOVE;
+  demoGraspInit();
+  demoLiftInit();
+  demoMoveInit();
 }
 
 vd demoTick(vd){

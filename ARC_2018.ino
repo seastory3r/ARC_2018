@@ -8,7 +8,14 @@ void setup() {
 }
 
 void loop() {
-  
+  bl isElapsed;
   // put your main code here, to run repeatedly:
   noInterrupts();
+  isElapsed = isElapsed10ms();
+  interrupts();
+
+  if( isElapsed ){
+    demoTick();
+  }
+  
 }

@@ -2,6 +2,10 @@
 
 #include "demo_move.h"
 
+vd demoMoveInit(void){
+  
+}
+
 bl demoMove(void){
   // 車両動作
   // ３回繰り返し

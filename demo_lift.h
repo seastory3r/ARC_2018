@@ -3,6 +3,7 @@
 
 #include "common.h"
 
+extern vd demoLiftInit(void);
 extern bl demoLift(void);
 
 #endif //DEMO_LIFT_H
