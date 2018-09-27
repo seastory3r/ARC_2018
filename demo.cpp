@@ -1,4 +1,7 @@
 #include "demo.h"
+#include "demo_grasp.h"
+#include "demo_lift.h"
+#include "demo_move.h"
 
 enum {
   DEMO_STATE_MOVE = 0,
@@ -9,9 +12,7 @@ enum {
 static uc demoState;
 
 //prototype
-static bl demoMove(void);
-static bl demoLift(void);
-static bl demoGrasp(void);
+
 
 vd demoInit(vd){
   demoState = DEMO_STATE_MOVE;
@@ -19,74 +20,47 @@ vd demoInit(vd){
 
 vd demoTick(vd){
   bl endDemo;
+  uc demoCnt;
 
+  // 把持動作、車輪(両方), リフト(上下)を順番に動作させる
   switch( demoState ){
       case DEMO_STATE_MOVE:
         endDemo = demoMove();
 
         if( endDemo == TRUE ){
-          demoState = DEMO_STATE_LIFT;
+          demoCnt++;
+          if( demoCnt >= 3){
+            demoState = DEMO_STATE_LIFT;
+            demoCnt = 0;
+          }
         }
         break;
+        
       case DEMO_STATE_LIFT:
         endDemo = demoLift();
 
         if( endDemo == TRUE ){
-          demoState = DEMO_STATE_LIFT;
+          demoCnt++;
+          if( demoCnt >= 3){
+            demoState = DEMO_STATE_GRASP;
+            demoCnt = 0;
+          }
         }
         break;
+        
       case DEMO_STATE_GRASP:
         endDemo = demoGrasp();
 
         if( endDemo == TRUE ){
-          demoState = DEMO_STATE_MOVE;
+          demoCnt++;
+          if( demoCnt >= 3){
+            demoState = DEMO_STATE_MOVE;
+            demoCnt = 0;
+          }
         }
         break;
+        
       default:
         break;
   }
 }
-  // 把持動作、車輪(両方), リフト(上下)を順番に動作させる
-  // 把持動作：５秒Open、5秒Closeを３回繰り返す。 
-  // 車両動作： ５秒前進、５秒後退、５秒旋回を３回繰り返す
-  // リフト動作：1秒上動作、１秒下動作を３回繰り返す 
-
-  // 把持動作
-  // ３回繰り返し
-    // サーボモータへOpen指示
-  
-    // 5秒wait
-  
-    // サーボモータへClose指示
-  
-    // ５秒wait
-
-  // 把持動作を停止させる
-
-  // 車両動作
-  // ３回繰り返し
-    // 前進指示
-
-    // ５秒wait
-
-    // 後退指示
-
-    // ５秒wait
-
-    // 旋回指示
-
-    // ５秒wait
-
-  // 停止指示
-
-  // リフト動作
-  // ３回繰り返し
-    // リフトへ上動作指示
-
-    // １秒wait
-
-    // リフトへ下動作指示
-
-    // １秒wait
-
-  // リフトへ停止指示
