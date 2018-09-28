@@ -10,11 +10,10 @@ bl demoLift(void){
   // リフト動作
 ul elapsedTime;
   // リフトへ上動作指示
-//  liftMotorUp();
-  // １秒wait
-elapsedTime = millis();
-  // リフトへ下動作指示
 
+  // １秒wait
+
+  // リフトへ下動作指示
 
   // １秒wait
 
