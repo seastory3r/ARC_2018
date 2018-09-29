@@ -1,4 +1,4 @@
-#include "cycle.h"
+#include "ARC_cycle.h"
 #include <MsTimer2.h>
 
 static uc cycleCounter;
