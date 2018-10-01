@@ -12,7 +12,7 @@ void gr_init() {
   grasp1 = ARCGrasp(PIN_IN_SERVO1, 30, 100);
 }
 
-void gr_grasp(graspReq_t) {
+void gr_grasp(graspReq_t gr_req) {
   case eGrOpen: // オープン
     Serial.println("o key(open) is clicked!");
     grasp1.open();
