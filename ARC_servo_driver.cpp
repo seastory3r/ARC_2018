@@ -1,7 +1,7 @@
 #include<stdlib.h>
 #include"arduino.h"
-#include "ARCGrasp.h"
-#include<ARC_servo_driver.h>
+#include "ARC_servo_driver.h"
+#include<Servo.h>
 
 Servo sv;
 

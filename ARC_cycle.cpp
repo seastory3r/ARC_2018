@@ -5,7 +5,6 @@ static uc cycleCounter;
 
 //prototype
 static vd cycleCount(vd);
-static uc _cycleCounter(vd);
 
 vd cycleInit(vd){
   cycleCounter = 0;
@@ -18,16 +17,12 @@ static vd cycleCount(vd){
   cycleCounter++;
 }
 
-static uc _cycleCounter(vd){
-  return cycleCounter;
-}
-
 static vd cycleClrCounter(vd){
   cycleCounter = 0;
 }
 
 bl isElapsed10ms(vd){
-  if( _cycleCounter() >= 10){
+  if( cycleCounter >= 10){
     cycleClrCounter();
 
     return TRUE;

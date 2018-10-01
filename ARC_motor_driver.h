@@ -4,6 +4,8 @@
 #ifndef ARC_MOTOR_DRIVER_H
 #define ARC_MOTOR_DRIVER_H
 
+#include <Arduino.h>
+
 class Motor{
   private:
     int pwmPin1, pwmPin2;

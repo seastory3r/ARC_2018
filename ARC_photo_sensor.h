@@ -6,7 +6,7 @@
 #ifndef ARC_PHOTO_SENSOR_H
 #define ARC_PHOTO_SENSOR_H
 
-#inlcude "ARC_common.h"
+#include "ARC_common.h"
 
 //センサの検知結果
 typedef enum {
@@ -15,6 +15,6 @@ typedef enum {
 } photoSensorRslt_t;
 
 extern void ps_init();
-extern photoSensorRslt_t ps_photoSensor(photoSensorRslt_t);
+extern photoSensorRslt_t ps_photoSensor(void);
 
 #endif //ARC_PHOTO_SENSOR_H
